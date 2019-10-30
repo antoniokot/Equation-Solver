@@ -8,7 +8,7 @@ public class Programa
         try
         {
 		Sistema sistema = new Sistema("gauss.txt");
-		sistema.Resolver();
+		sistema.resolver();
         }
         catch (Exception erro)
         {

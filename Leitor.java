@@ -14,7 +14,7 @@ public class Leitor							// terminar classe
 	public void setNomeArq(String arq) throws Exception
 	{
 		if(arq == "")
-			throw new Exception("Arquivo inv·lido!");
+			throw new Exception("Arquivo inv√°lido!");
 
 		this.nomeArq = arq;
 	}
@@ -38,7 +38,7 @@ public class Leitor							// terminar classe
 			for (int i=0; i<qtdEquacoes; i++)
 			{
 				StringTokenizer quebrador = new StringTokenizer (arquivo.readLine());
-				int col =0;
+				int col = 0;
 
 				while (quebrador.hasMoreTokens())
 				{

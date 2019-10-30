@@ -7,11 +7,12 @@ public class Programa
     {
         try
         {
-			Sistema sis = new Sistema("gauss.txt");
+		Sistema sistema = new Sistema("gauss.txt");
+		sistema.Resolver();
         }
         catch (Exception erro)
         {
-			//...
-		}
+		//...
+	}
     }
 }

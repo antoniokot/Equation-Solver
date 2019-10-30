@@ -4,6 +4,9 @@ public class Sistema implements Cloneable
 
 	public Sistema(String arq) throws Exception
 	{
+		if(arq == "")
+			throw new Exception("Arquivo inválido!");
+
 		this.matriz = Leitor.LerArquivo(arq);
 	}
 

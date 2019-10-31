@@ -7,12 +7,12 @@ public class Programa
     {
         try
         {
-		Sistema sistema = new Sistema("gauss.txt");
-		sistema.resolver();
+			Sistema sistema = new Sistema("gauss.txt");
+			//sistema.resolver();
         }
         catch (Exception erro)
         {
-		//...
-	}
+			System.err.println(erro.getMessage());
+		}
     }
 }

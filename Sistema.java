@@ -22,9 +22,10 @@ public class Sistema implements Cloneable
 		while(temZeroNaDiagonal() && i < Sistema.fatorial(this.qtdLinhas))
 			this.trocarOrdemDasLinhas();
 
-		this.tornarUmOPrimeiroElemento();
+		this.tornarUmOElementoDaDiagonalPrincipal(algumaCoisa);
+		this.zerarAColunaDesejada();
 
-		return "";
+		return this.exibirValores();
 	}
 
 	private void confereQuocientes() throws Exception
@@ -42,8 +43,9 @@ public class Sistema implements Cloneable
 		}
 	}
 
-	private static boolean mesmosQuocientes(double[] vetorAnalisado)
+	private static boolean mesmosQuocientes(double[] vetorAnalisado)								// AJEITAR
 	{
+
 		for(int aux = 0; aux < vetorAnalisado.length; aux++)
 		{
 			for(int i = 0; i < vetorAnalisado.length; i++)
@@ -109,13 +111,149 @@ public class Sistema implements Cloneable
 		return prod;
 	}
 
-	private void tornarUmOPrimeiroElemento()
+	private void tornarUmOElementoDaDiagonalPrincipal(int linCol)			// adaptado
 	{
-		double divisorComum = this.matriz[0][0];
+		double divisorComum = this.matriz[linCol][linCol];
 
 		for(int i = 0; i < this.qtdColunas; i++)
 		{
-			this.matriz[0][i] = (this.matriz[0][i] / divisorComum);
+			this.matriz[linCol][i] /= divisorComum;
+		}
+	}
+
+	private void zerarAColunaDesejada(int colunaDesejada)					// adaptado
+	{
+		double multiplicador = 0;
+		double produtos[] = new double[this.qtdColunas];
+
+		for(int linha = 0; linha < this.qtdLinhas; linha++)
+		{
+			if(this.matriz[linha][colunaDesejada] != 0 && linha != colunaDesejada)
+			{
+				multiplicador = -(this.matriz[linha][colunaDesejada]);	// -1/3
+
+				for(int coluna = 0; coluna < this.qtdColunas; coluna++)
+				{
+					produtos[coluna] = this.matriz[colunaDesejada][coluna] * multiplicador; // 0, 0, 1/3, 8/3
+				}
+				somarResultadosAsDeMaisLinhas(produtos, linha);
+			}
+		}
+	}
+
+	private void somarResultadosAsDeMaisLinhas(double[] valoresASeremSomados, int lin)
+	{
+		for(int coluna = 0; coluna < this.qtdColunas; coluna++)
+		{
+			this.matriz[lin][coluna] += valoresASeremSomados[coluna];
+		}
+	}
+
+	private String exibirValores()
+	{
+		String ret = "S = {( ";
+
+			for(int linha = 0; linha < this.qtdLinhas; linha++)
+			{
+				ret += this.matriz[linha][this.qtdColunas-1] + "";
+
+				if(linha != this.qtdLinhas-1)
+					ret += ", ";
+			}
+		ret += ")}";
+
+		return ret;
+	}
+
+	public String toString()
+	{
+		String ret = "";
+
+		ret = this.qtdLinhas + "x" + this.qtdColunas + "\n";
+		for(int linha = 0; linha < this.qtdLinhas; linha++)
+		{
+			for(int coluna = 0; coluna < this.qtdColunas; coluna++)
+			{
+				ret += (this.matriz[linha][coluna]>=10?"  ":" ") + this.matriz[linha][coluna];
+			}
+			ret += "\n";
+		}
+		return ret;
+	}
+
+	public boolean equals(Object obj)
+	{
+		if(obj == null)
+			return false;
+
+		if(obj == this)
+			return true;
+
+		if(obj.getClass() != this.getClass())
+			return false;
+
+		Sistema sistema = (Sistema)obj;
+		if(sistema.qtdLinhas != this.qtdLinhas || sistema.qtdColunas != this.qtdColunas)
+			return false;
+
+		for(int linha = 0; linha < this.qtdLinhas; linha++)
+		{
+			for(int coluna = 0; coluna < this.qtdColunas; coluna++)
+			{
+				if(sistema.matriz[linha][coluna] != this.matriz[linha][coluna])
+					return false;
+			}
+		}
+
+		return true;
+	}
+
+	public int hashCode()
+	{
+		int ret = 666;
+
+		ret = ret * 11 + new Integer(this.qtdLinhas).hashCode();
+		ret = ret * 11 + new Integer(this.qtdColunas).hashCode();
+		for(int linha = 0; linha < this.qtdLinhas; linha++)
+		{
+			for(int coluna = 0; coluna < this.qtdColunas; coluna++)
+			{
+				ret = ret * 11 + new Double(this.matriz[linha][coluna]).hashCode();
+
+			}
+		}
+		return ret;
+	}
+
+	public Object clone()
+	{
+		Sistema ret = null;
+		try
+		{
+			ret = new Sistema(this);
+		}
+		catch(Exception erro)
+		{
+			// sei que não vai dar erro
+		}
+		return ret;
+	}
+
+	public Sistema(Sistema modelo) throws Exception
+	{
+		if(modelo == null)
+			throw new Exception("Modelo inválido!");
+
+		modelo.qtdLinhas = this.qtdLinhas;
+		modelo.qtdColunas = this.qtdColunas;
+
+		modelo.matriz[modelo.qtdLinhas][modelo.qtdColunas];
+		for(int linha = 0; linha < modelo.qtdLinhas; linha++)
+		{
+			for(int coluna = 0; coluna < modelo.qtdColunas; coluna++)
+			{
+				 modelo.matriz[linha][coluna] = this.matriz[linha][coluna];
+			}
 		}
 	}
 }

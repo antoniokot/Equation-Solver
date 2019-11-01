@@ -7,23 +7,29 @@ public class Sistema implements Cloneable
 	public Sistema(String arq) throws Exception
 	{
 		if(arq == "")
-			throw new Exception("Arquivo inv·lido!");
+			throw new Exception("Arquivo inv√°lido!");
 
 		this.matriz = Leitor.LerArquivo(arq);
 		this.qtdLinhas = this.matriz.length;			// 3
 		this.qtdColunas = this.matriz[0].length;		// 4
 	}
 
-	public String resolver() throws Exception			// mÈtodo principal
+	public String resolver() throws Exception			// m√©todo principal
 	{
 		this.confereQuocientes();
 
 		int i = 0;
 		while(temZeroNaDiagonal() && i < Sistema.fatorial(this.qtdLinhas))
+		{
 			this.trocarOrdemDasLinhas();
+			i++;
+		}
 
-		this.tornarUmOElementoDaDiagonalPrincipal(algumaCoisa);
-		this.zerarAColunaDesejada();
+		while(i < this.qtdLinhas)
+		{
+			this.tornarUmOElementoDaDiagonalPrincipal(i);
+			this.zerarAColunaDesejada(i);
+		}
 
 		return this.exibirValores();
 	}
@@ -32,14 +38,14 @@ public class Sistema implements Cloneable
 	{
 		double[] quocientesPossiveis = new double[qtdColunas - 1];
 
-		for(int linha = 0; linha < this.qtdLinhas-1; linha++)										// pega atÈ a segunda linha
+		for(int linha = 0; linha < this.qtdLinhas-1; linha++)										// pega at√© a segunda linha
 		{
-			for(int coluna = 0; coluna < this.qtdColunas-1; coluna++)								// pega atÈ a terceira coluna
+			for(int coluna = 0; coluna < this.qtdColunas-1; coluna++)								// pega at√© a terceira coluna
 			{
-				quocientesPossiveis[coluna] = (matriz[linha][coluna] / matriz[linha+1][coluna]);	// realiza a divis„o
+				quocientesPossiveis[coluna] = (matriz[linha][coluna] / matriz[linha+1][coluna]);	// realiza a divis√£o
 			}
 			if(Sistema.mesmosQuocientes(quocientesPossiveis))
-				throw new Exception("Sistema impossÌvel de ser solucionado!");
+				throw new Exception("Sistema imposs√≠vel de ser solucionado!");
 		}
 	}
 
@@ -234,7 +240,7 @@ public class Sistema implements Cloneable
 		}
 		catch(Exception erro)
 		{
-			// sei que n„o vai dar erro
+			// sei que n√£o vai dar erro
 		}
 		return ret;
 	}
@@ -242,12 +248,12 @@ public class Sistema implements Cloneable
 	public Sistema(Sistema modelo) throws Exception
 	{
 		if(modelo == null)
-			throw new Exception("Modelo inv·lido!");
+			throw new Exception("Modelo inv√°lido!");
 
 		modelo.qtdLinhas = this.qtdLinhas;
 		modelo.qtdColunas = this.qtdColunas;
 
-		modelo.matriz[modelo.qtdLinhas][modelo.qtdColunas];
+		modelo.matriz = new double[modelo.qtdLinhas][modelo.qtdColunas];
 		for(int linha = 0; linha < modelo.qtdLinhas; linha++)
 		{
 			for(int coluna = 0; coluna < modelo.qtdColunas; coluna++)
@@ -257,3 +263,7 @@ public class Sistema implements Cloneable
 		}
 	}
 }
+
+
+
+

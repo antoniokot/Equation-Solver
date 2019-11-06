@@ -71,7 +71,7 @@ public class Sistema
 
 	/**
 	Confere se o sistema é solucionável.
-	Este método confere se os quociente das divisões dos coeficientes de cada linha sistema
+	Este método confere se os quociente das divisões dos coeficientes de CADA linha do sistema
 	é igual, e caso seja, lança uma exceção reportando a impossibilidade da solução.
 	@throw Exceptios	Caso os quocientes seja iguais, é impossível de solucionar o sistema.
 	*/
@@ -85,11 +85,18 @@ public class Sistema
 			{
 				quocientesPossiveis[coluna] = (matriz[linha][coluna] / matriz[linha+1][coluna]);	// Realiza a divisão entre a linha de cima e a de baixo
 			}
-			if(Sistema.mesmosQuocientes(quocientesPossiveis))										// Analisa o vetor em questão
-				throw new Exception("Sistema impossivel de ser solucionado!\n");					// Dispara-se a excessão necessária
+			if(this.mesmosQuocientes(quocientesPossiveis))										// Analisa o vetor em questão
+				throw new Exception("Sistema impossível de ser solucionado!\n");					// Dispara-se a excessão necessária
 		}
 	}
-
+	
+	/**
+	Verifica se o quociente de UMA divisão é corresponde à outra.
+	Aqui verificamos, através de um vetor, se ao dividir os coeficientes todos os quocientes 
+	são iguais (utilizado no método confereQuocientes() que chamará este método a cada divisão).
+	@return 		Retorna se os quocientes são iguais (true) ou não (false).
+	@param 	vetorAnalisado  Linha a ser analisada desta vez.
+	*/
 	protected boolean mesmosQuocientes(double[] vetorAnalisado)								// É o método que analisa se em um mesmo vetor há dois valores iguais, tornando impossível a resolução do sistema
 	{
 		int contador = 0;

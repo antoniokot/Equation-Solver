@@ -38,7 +38,14 @@ public class Sistema
 	}
 
 
-
+	/**
+	Utiliza de outros métodos desta classe para resolver o sistema.
+	Através de outros métodos, tais como o confereQuociente() ou o temZeroNaDiagonal(),
+	manipula-se as linhas da matriz (atributo da classe) para resolver os sistemas.
+	@throws Exception 	Caso tenhamos permutado as equações de posição, sem conseguir resolver
+				o sistema.
+	@return 		Retorna os valores, em formato de uma String, já resolvidos dos sistema.
+	*/
 	public String resolver() throws Exception									// Método principal, aquele que vai chamar os métodos necessários para resolver os sistemas
 	{
 		this.confereQuocientes();												// Confere se há um mesmo quociente entre as divisões da linha de cima e a de baixo
@@ -62,7 +69,12 @@ public class Sistema
 	}
 
 
-
+	/**
+	Confere se o sistema é solucionável.
+	Este método confere se os quociente das divisões dos coeficientes de cada linha sistema
+	é igual, e caso seja, lança uma exceção reportando a impossibilidade da solução.
+	@throw Exceptios	Caso os quocientes seja iguais, é impossível de solucionar o sistema.
+	*/
 	protected void confereQuocientes() throws Exception												// Este método adiciona a um vetor os coeficientes entre a linha de cima e a de baixo
 	{
 		double[] quocientesPossiveis = new double[qtdColunas - 1];

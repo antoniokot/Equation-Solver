@@ -20,6 +20,7 @@ public class Leitor																		// Singleton
 	em uma matriz de double que, por sua vez, será retornada.
 	@param arq	    O endereço do arquivo de texto a ser lido.
 	@throws Exception   Caso o endereço do arquivo de texto seja vazio.
+	@return  	    Uma matriz com os dados lidos do arquivo de texto.
 	*/
 	public static double[][] LerArquivo(String arq) throws Exception
 	{

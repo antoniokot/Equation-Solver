@@ -9,9 +9,8 @@ de texto (cujo endereço é recebido pelo parâmetro do método LerArquivo())
 e retornar, após ler o arquivo, uma matriz.
 Esta classe, um singleton sem atributos, possui apenas um método, o LerArquivo(), 
 resposável por ler o arquivo enquanto adiciona os dados em uma matriz de double.
-@author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda
-@since	2019 
-Instâncias desta classe permite 
+@author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
+@since	2019.
 */
 public class Leitor																		// Singleton
 {
@@ -20,7 +19,7 @@ public class Leitor																		// Singleton
 	O método LerArquivo() serve para ler um arquivo enquanto adiciona os dados
 	em uma matriz de double que, por sua vez, será retornada.
 	@param arq	    O endereço do arquivo de texto a ser lido.
-	@throws Exception   Caso o endereço do arquivo de texto seja vazio
+	@throws Exception   Caso o endereço do arquivo de texto seja vazio.
 	*/
 	public static double[][] LerArquivo(String arq) throws Exception
 	{

@@ -120,7 +120,6 @@ public class Sistema
 	Troca a ordem das linhas do sistema.
 	Neste método trocamos a ordem das linhas do sistema com o propósito de encontrar a posição ideal para 
 	realizar as operações de resolução.
-	
 	*/
 	protected void trocarOrdemDasLinhas()															// Este método troca as linhas de lugar
 	{
@@ -256,7 +255,13 @@ public class Sistema
 
 		return ret;
 	}
-
+	
+	/**
+	Retorna uma string com a matriz da instância.
+	Monta e retorna uma string com as colunas, linhas e elementos da instância, valores obtidos
+	no contrutor desta classe.
+	@return 	Retorna a string com a a matriz da instância.
+	*/
 	public String toString()																						// Este método printa a matriz em seu estado atual
 	{
 		String ret = "";
@@ -271,7 +276,14 @@ public class Sistema
 		}
 		return ret;
 	}
-
+	
+	/**
+	Verifica se "this" é igual a outro objeto.
+	Através de verificações em sequência, verifica se o a instância da classe Object,
+	passada como parâmetro deste método, é igual, "equals", ao "this".
+	@param obj	Objeto da classe Object a ser comparado com o "this".
+	@return 	Retorna true caso seja igual, e false caso contrário.
+	*/
 	public boolean equals(Object obj)																				// Este método confere se dois objetos são iguais em conteúdo
 	{
 		if(obj == null)
@@ -298,7 +310,13 @@ public class Sistema
 
 		return true;
 	}
-
+	
+	/**
+	Gera um hashCode específico da instância chamante.
+	Baseado nos atributos não estáticos da classe, calcula-se o hashCode() individual, 
+	e depois os soma e retorna um só valor inteiro.
+	@return 	Retorna o hascode da instância.
+	*/
 	public int hashCode()																							// Este método é utilizado para fazer o hash
 	{
 		int ret = 666;
@@ -314,6 +332,9 @@ public class Sistema
 
 			}
 		}
+		if(ret < 0)
+			ret = -ret;
+		
 		return ret;
 	}
 	

@@ -10,6 +10,7 @@ resolução desenvolvido por Carl Friedrich Gauss, que resolverá qualquer siste
 de equações lineares, "zerando" as incógintas e limitando cada equação à apenas
 uma variável.
 @author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
+@see classe Leitor.
 @since 2019.
 */
 public class Sistema
@@ -17,7 +18,10 @@ public class Sistema
 	protected double matriz[][];							// aqui declare-se os atributos matriz, qtdLinhas, qtdColunas e qtdEquacoes
 	protected int qtdLinhas, qtdColunas, qtdEquacoes;
 
-
+	/**
+	Constroi uma nova instância da classe Sistema.
+	Este construtor
+	*/
 	public Sistema(String arq) throws Exception
 	{
 		if(arq == "")															// se o nome do arquivo for cadeia vazia, dispara-se excessão

@@ -247,6 +247,41 @@ public class Sistema
 		}
 		return ret;
 	}
+	
+	public Object clone()
+	{
+		Sistema ret = null;
+		
+		try
+		{
+			ret = new Sistema(this);
+		}
+		catch(Exception erro)
+		{
+			// sei que não vai dar erro
+		}
+		return ret;
+	}
+	
+	public Sistema(Sistema modelo) thorws Exception
+	{
+		if(modelo == null)
+			throw new Exception("Modelo invalido!");
+		
+		modelo.qtdLinhas = this.qtdLinhas;
+		modelo.qtdLinhas = this.qtdColunas;
+		modelo.qtdLinhas = this.qtdEquacoes;
+		
+		modelo.matriz = new double[modelo.qtdLinhas][modelo.qtdColunas];
+		
+		for(int linha = 0; linha < modelo.qtdLinhas; linha++)
+		{
+			for(int coluna = 0; coluna < modelo.qtdColunas; coluna++)
+			{
+				modelo.matriz[linha][coluna] = this.matriz[linha][coluna];
+			}
+		}
+	}
 }
 
 

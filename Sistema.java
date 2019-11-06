@@ -90,16 +90,16 @@ public class Sistema
 		}
 	}
 
-	protected static boolean mesmosQuocientes(double[] vetorAnalisado)								// É o método que analisa se em um mesmo vetor há dois valores iguais, tornando impossível a resolução do sistema
+	protected boolean mesmosQuocientes(double[] vetorAnalisado)								// É o método que analisa se em um mesmo vetor há dois valores iguais, tornando impossível a resolução do sistema
 	{
-		for(int aux = 0; aux < vetorAnalisado.length; aux++)
+		int contador = 0;
+		for(int i = 0; i < vetorAnalisado.length; i++)
 		{
-			for(int i = aux+1; i < vetorAnalisado.length; i++)
-			{
-				if(vetorAnalisado[i] == vetorAnalisado[aux])										// Aqui ocorre a verificação
-					return true;
-			}
+			if(vetorAnalisado[0] == vetorAnalisado[i])
+				contador++;
 		}
+		if(contador == this.qtdColunas-1)
+			return true;
 		return false;
 	}
 

@@ -25,6 +25,7 @@ public class Sistema
 	valores correspondentes à matriz lida.
 	@param  arq 	   Endereço do arquivo de texto que será lido pela classe Leitor.
 	@throws Exception  Caso o endereço do arquivo de texto seja vazio ("");
+	@see	leitor.Leitor#LerArquivo()
 	*/
 	public Sistema(String arq) throws Exception
 	{

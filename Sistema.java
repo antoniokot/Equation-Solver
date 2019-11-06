@@ -116,7 +116,12 @@ public class Sistema
 		return false;
 	}
 
-
+	/**
+	Troca a ordem das linhas do sistema.
+	Neste método trocamos a ordem das linhas do sistema com o propósito de encontrar a posição ideal para 
+	realizar as operações de resolução.
+	
+	*/
 	protected void trocarOrdemDasLinhas()															// Este método troca as linhas de lugar
 	{
 		double[] aux = new double[this.qtdColunas];													// Cria-se um vetor para auxiliar no deslocamento das linhas

@@ -10,8 +10,8 @@ resolução desenvolvido por Carl Friedrich Gauss, que resolverá qualquer siste
 de equações lineares, "zerando" as incógintas e limitando cada equação à apenas
 uma variável.
 @author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
-@see Leitor.
-@since 2019.
+@see    Leitor.
+@since  2019.
 */
 public class Sistema
 {
@@ -23,7 +23,7 @@ public class Sistema
 	Este construtor recebe um endereço de arquivo de texto, que será lido pelo método
 	LerArquivo() da classe importada Leitor, e atribuirá aos atributos desta classe os
 	valores correspondentes à matriz lida.
-	@param arq 	   Endereço do arquivo de texto que será lido pela classe Leitor.
+	@param  arq 	   Endereço do arquivo de texto que será lido pela classe Leitor.
 	@throws Exception  Caso o endereço do arquivo de texto seja vazio ("");
 	*/
 	public Sistema(String arq) throws Exception
@@ -161,7 +161,14 @@ public class Sistema
 		}
 		return false;																				// Retorna false caso não haja
 	}
-
+	
+	/**
+	Transforma em um (1) o elemento da diagonal principal.
+	Este método recebe um parâmetro inteiro "linha" que especificará qual linha da diagonal
+	principal deverá ser transformado em 1, e tratando da diagonal principal, "linha" corresponde
+	também ao número da coluna.
+	@param	linha		Número indicador de qual linha da diagonal principal estamos tratando.
+	*/
 	protected void tornarUmOElementoDaDiagonalPrincipal(int linha)									// Este método torna UM o elemento da diagonal principal
 	{
 		int coluna = linha;

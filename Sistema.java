@@ -338,6 +338,11 @@ public class Sistema
 		return ret;
 	}
 	
+	/**
+	Realiza uma cópia do "this".
+	Criamos uma nova instância da classe Sistema (ret) que receberá os valores do "this".
+	@return		Retorna a instância que foi copiada.
+	*/
 	public Object clone()
 	{
 		Sistema ret = null;
@@ -353,6 +358,12 @@ public class Sistema
 		return ret;
 	}
 	
+	/**
+	Realiza uma cópia do "this" (contrutor de cópia).
+	Através do parâmetro (modelo), copiamos todos os valores do "this" para o modelo (que
+	possui os mesmos atributos, visto que também pertence à classe Sistema).
+	@param	modelo		Objeto da classe 	Sistema que receberá os valores do "this".
+	*/
 	public Sistema(Sistema modelo) throws Exception
 	{
 		if(modelo == null)

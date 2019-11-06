@@ -25,7 +25,7 @@ public class Sistema
 	valores correspondentes à matriz lida.
 	@param  arq 	   Endereço do arquivo de texto que será lido pela classe Leitor.
 	@throws Exception  Caso o endereço do arquivo de texto seja vazio ("");
-	@see	leitor.Leitor#LerArquivo()
+	@see	leitor.Leitor#LerArquivo(String arq).
 	*/
 	public Sistema(String arq) throws Exception
 	{
@@ -37,7 +37,6 @@ public class Sistema
 		this.qtdColunas = this.matriz[0].length;								// Aqui diz-se quantas linhas há na matriz
 		this.qtdEquacoes = this.matriz.length;									// Aqui diz-se quantas equações há no sistema
 	}
-
 
 	/**
 	Utiliza de outros métodos desta classe para resolver o sistema.
@@ -74,7 +73,6 @@ public class Sistema
 
 		return this.exibirValores();
 	}
-
 
 	/**
 	Confere se o sistema é solucionável.

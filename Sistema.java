@@ -2,6 +2,16 @@ package sistema;
 
 import leitor.Leitor;
 
+/**
+A classe Sistema serve para resolver qualquer sistema de equações lineares,
+desde que tal seja resolvível.
+Nesta classe, resolve-se o sistema de equações recebido através do método de
+resolução desenvolvido por Carl Friedrich Gauss, que resolverá qualquer sistema
+de equações lineares, "zerando" as incógintas e limitando cada equação à apenas
+uma variável.
+@author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
+@since 2019.
+*/
 public class Sistema
 {
 	protected double matriz[][];							// aqui declare-se os atributos matriz, qtdLinhas, qtdColunas e qtdEquacoes

@@ -263,7 +263,7 @@ public class Sistema
 		return ret;
 	}
 	
-	public Sistema(Sistema modelo) thorws Exception
+	public Sistema(Sistema modelo) throws Exception
 	{
 		if(modelo == null)
 			throw new Exception("Modelo invalido!");

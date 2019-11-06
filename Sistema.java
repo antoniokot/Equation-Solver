@@ -42,9 +42,9 @@ public class Sistema
 	Utiliza de outros métodos desta classe para resolver o sistema.
 	Através de outros métodos, tais como o confereQuociente() ou o temZeroNaDiagonal(),
 	manipula-se as linhas da matriz (atributo da classe) para resolver os sistemas.
+	@return 		Retorna os valores, em formato de uma String, já resolvidos dos sistema.
 	@throws Exception 	Caso tenhamos permutado as equações de posição, sem conseguir resolver
 				o sistema.
-	@return 		Retorna os valores, em formato de uma String, já resolvidos dos sistema.
 	*/
 	public String resolver() throws Exception									// Método principal, aquele que vai chamar os métodos necessários para resolver os sistemas
 	{
@@ -73,7 +73,7 @@ public class Sistema
 	Confere se o sistema é solucionável.
 	Este método confere se os quociente das divisões dos coeficientes de CADA linha do sistema
 	é igual, e caso seja, lança uma exceção reportando a impossibilidade da solução.
-	@throw Exceptios	Caso os quocientes seja iguais, é impossível de solucionar o sistema.
+	@throws Exception	Caso os quocientes seja iguais, é impossível de solucionar o sistema.
 	*/
 	protected void confereQuocientes() throws Exception												// Este método adiciona a um vetor os coeficientes entre a linha de cima e a de baixo
 	{
@@ -94,8 +94,8 @@ public class Sistema
 	Verifica se o quociente de UMA divisão é corresponde à outra.
 	Aqui verificamos, através de um vetor, se ao dividir os coeficientes todos os quocientes 
 	são iguais (utilizado no método confereQuocientes() que chamará este método a cada divisão).
-	@return 		Retorna se os quocientes são iguais (true) ou não (false).
 	@param 	vetorAnalisado  Linha a ser analisada desta vez.
+	@return 		Retorna se os quocientes são iguais (true) ou não (false).
 	*/
 	protected boolean mesmosQuocientes(double[] vetorAnalisado)								// É o método que analisa se em um mesmo vetor há dois valores iguais, tornando impossível a resolução do sistema
 	{
@@ -179,7 +179,13 @@ public class Sistema
 			this.matriz[linha][i] /= divisorComum;													// Aqui ocorre a divisão dos elementos da linha passada como parâmetro
 		}
 	}
-
+	
+	/**
+	Zera-se (transforma em 0) a coluna desejada.
+	Através do parâmetro "colunaDesejada", este método transforma em zero uma coluna desejada, 
+	utilizando-se de outras equações e subtrações para fazê-lo.
+	@param colunaDesejada		Especifica qual a coluna que desaja-se zerar.
+	*/
 	protected void zerarAColunaDesejada(int colunaDesejada)															// Este método zera a coluna desejada
 	{
 		double multiplicador = 0;
@@ -200,7 +206,15 @@ public class Sistema
 			}
 		}
 	}
-
+	
+	/**
+	Soma duas equações de modo a zerar variáveis.
+	No método zerarAColunaDesejada(), desta mesma classe busca-se somar duas equações em ordem de
+	obter uma equação com uma das colunas zeradas, para isso usa-se este método que recebe como parâmetro
+	um array com a equação a ser somada a linha, passada também como parâmetro.
+	@param valoresASeremSomados	Esta é a nova equação que será somada à linha desejada.
+	@param lin			Esta é a linha desejada.
+	*/
 	protected void somarResultadosAsDeMaisLinhas(double[] valoresASeremSomados, int lin)							// Este método zera a coluna desejada, passada no método que chama este, através de adições
 	{
 		for(int coluna = 0; coluna < this.qtdColunas; coluna++)
@@ -208,7 +222,10 @@ public class Sistema
 			this.matriz[lin][coluna] += valoresASeremSomados[coluna];												// Aqui ocorrem as adições
 		}
 	}
-
+	
+	/**
+	
+	*/
 	protected String exibirValores()																				// Este método exibi os resultados do sistema
 	{
 		String ret = "Os valores sao respectivamente: S = {( ";

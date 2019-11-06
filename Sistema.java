@@ -10,7 +10,7 @@ resolução desenvolvido por Carl Friedrich Gauss, que resolverá qualquer siste
 de equações lineares, "zerando" as incógintas e limitando cada equação à apenas
 uma variável.
 @author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
-@see classe Leitor.
+@see Leitor.
 @since 2019.
 */
 public class Sistema
@@ -23,8 +23,8 @@ public class Sistema
 	Este construtor recebe um endereço de arquivo de texto, que será lido pelo método
 	LerArquivo() da classe importada Leitor, e atribuirá aos atributos desta classe os
 	valores correspondentes à matriz lida.
-	@param arq Endereço do arquivo de texto que será lido pela classe Leitor.
-	@
+	@param arq 	   Endereço do arquivo de texto que será lido pela classe Leitor.
+	@throws Exception  Caso o endereço do arquivo de texto seja vazio ("");
 	*/
 	public Sistema(String arq) throws Exception
 	{

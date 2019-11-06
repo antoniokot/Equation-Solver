@@ -10,7 +10,7 @@ resolução desenvolvido por Carl Friedrich Gauss, que resolverá qualquer siste
 de equações lineares, "zerando" as incógintas e limitando cada equação à apenas
 uma variável.
 @author Antônio Hideto Borges Kotsubo & Matheus Seiji Luna Noda.
-@see    Leitor.
+@see    leitor.Leitor.
 @since  2019.
 */
 public class Sistema
@@ -45,6 +45,12 @@ public class Sistema
 	@return 		Retorna os valores, em formato de uma String, já resolvidos dos sistema.
 	@throws Exception 	Caso tenhamos permutado as equações de posição, sem conseguir resolver
 				o sistema.
+	@see	#confereQuociente().
+	@see 	#temZeroNaDiagonal().
+	@see	#trocarOrdemSasLinhas().
+	@see	#tornarUmOElementoDaDiagonalPrincipal(int linha).
+	@see	#zerarAColunaDesejada(int colunaDesejada).
+	@see	#exibirValores().
 	*/
 	public String resolver() throws Exception									// Método principal, aquele que vai chamar os métodos necessários para resolver os sistemas
 	{
@@ -74,6 +80,7 @@ public class Sistema
 	Este método confere se os quociente das divisões dos coeficientes de CADA linha do sistema
 	é igual, e caso seja, lança uma exceção reportando a impossibilidade da solução.
 	@throws Exception	Caso os quocientes seja iguais, é impossível de solucionar o sistema.
+	@see    #mesmoQuociente(double[] vetorAnalisado).
 	*/
 	protected void confereQuocientes() throws Exception												// Este método adiciona a um vetor os coeficientes entre a linha de cima e a de baixo
 	{
@@ -184,7 +191,8 @@ public class Sistema
 	Zera-se (transforma em 0) a coluna desejada.
 	Através do parâmetro "colunaDesejada", este método transforma em zero uma coluna desejada, 
 	utilizando-se de outras equações e subtrações para fazê-lo.
-	@param colunaDesejada		Especifica qual a coluna que desaja-se zerar.
+	@param  colunaDesejada		Especifica qual a coluna que desaja-se zerar.
+	@see	somarResultadoAsDemaisLinhas(double[] valoresASeremSomados, int lin).
 	*/
 	protected void zerarAColunaDesejada(int colunaDesejada)															// Este método zera a coluna desejada
 	{
@@ -202,7 +210,7 @@ public class Sistema
 				{
 					produtos[coluna] = this.matriz[linhaDoElementoDaDiagonalPrincipal][coluna] * multiplicador; 	// Aqui ocorre a multiplicação entre os valores da linha do elemento da diagonal principal
 				}
-				somarResultadosAsDeMaisLinhas(produtos, linha);														// Chama-se o método para somar os valores encontrados através da multiplicação anterior
+				somarResultadosAsmeMaisLinhas(produtos, linha);														// Chama-se o método para somar os valores encontrados através da multiplicação anterior
 			}
 		}
 	}
@@ -215,7 +223,7 @@ public class Sistema
 	@param valoresASeremSomados	Esta é a nova equação que será somada à linha desejada.
 	@param lin			Esta é a linha desejada.
 	*/
-	protected void somarResultadosAsDeMaisLinhas(double[] valoresASeremSomados, int lin)							// Este método zera a coluna desejada, passada no método que chama este, através de adições
+	protected void somarResultadosAsDemaisLinhas(double[] valoresASeremSomados, int lin)							// Este método zera a coluna desejada, passada no método que chama este, através de adições
 	{
 		for(int coluna = 0; coluna < this.qtdColunas; coluna++)
 		{
@@ -224,7 +232,10 @@ public class Sistema
 	}
 	
 	/**
-	
+	Retorna a resolção do sistema.
+	Neste método retorna-se os valores das respostas concatenados em uma string, e ordem
+	respectiva aos do arquivo de texto orignalmente lido.
+	@return 	Retorna uma string com as respostas do sistema.
 	*/
 	protected String exibirValores()																				// Este método exibi os resultados do sistema
 	{

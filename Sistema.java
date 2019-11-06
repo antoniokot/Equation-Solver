@@ -144,7 +144,14 @@ public class Sistema
 			}
 		}
 	}
-
+	
+	/**
+	Verifica se a diagonal principal tem algu zero.
+	Verificamos se a diagonal principal, onde o número da coluna equivale ao da linha,
+	possui algum zero (0) (Neste método ignoramos a última colunas da matriz, sendo ela
+	irrelevante no momento).
+	@return 	Caso exista algum zero na diagonal principal retorna true e caso não false.
+	*/
 	protected boolean temZeroNaDiagonal()															// Este método confere a existência de zero em qualquer posição da diagonal principal
 	{
 		for(int i = 0; i < this.qtdLinhas; i++)

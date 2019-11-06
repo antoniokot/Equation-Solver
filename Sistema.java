@@ -20,7 +20,11 @@ public class Sistema
 
 	/**
 	Constroi uma nova instância da classe Sistema.
-	Este construtor
+	Este construtor recebe um endereço de arquivo de texto, que será lido pelo método
+	LerArquivo() da classe importada Leitor, e atribuirá aos atributos desta classe os
+	valores correspondentes à matriz lida.
+	@param arq Endereço do arquivo de texto que será lido pela classe Leitor.
+	@
 	*/
 	public Sistema(String arq) throws Exception
 	{

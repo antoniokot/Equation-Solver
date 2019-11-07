@@ -368,18 +368,18 @@ public class Sistema
 	{
 		if(modelo == null)
 			throw new Exception("Modelo invalido!");
-		
-		modelo.qtdLinhas = this.qtdLinhas;
-		modelo.qtdLinhas = this.qtdColunas;
-		modelo.qtdLinhas = this.qtdEquacoes;
-		
-		modelo.matriz = new double[modelo.qtdLinhas][modelo.qtdColunas];
-		
+
+		this.qtdLinhas = modelo.qtdLinhas;
+		this.qtdColunas = modelo.qtdColunas;
+		this.qtdEquacoes = modelo.qtdEquacoes;
+
+		this.matriz = new double[this.qtdLinhas][this.qtdColunas];
+
 		for(int linha = 0; linha < modelo.qtdLinhas; linha++)
 		{
-			for(int coluna = 0; coluna < modelo.qtdColunas; coluna++)
+			for(int coluna = 0; coluna < this.qtdColunas; coluna++)
 			{
-				modelo.matriz[linha][coluna] = this.matriz[linha][coluna];
+				this.matriz[linha][coluna] = modelo.matriz[linha][coluna];
 			}
 		}
 	}

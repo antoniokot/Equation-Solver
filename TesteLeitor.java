@@ -1,8 +1,6 @@
-import java.util.StringTokenizer;
 import java.io.*;
 
 import sistema.Sistema;
-import teclado.Teclado;
 
 public class TesteLeitor
 {

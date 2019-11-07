@@ -1,6 +1,7 @@
 import java.io.*;
 
 import sistema.Sistema;
+import leitor.Leitor;
 
 public class TesteLeitor
 {

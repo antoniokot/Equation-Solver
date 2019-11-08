@@ -213,7 +213,7 @@ public class Sistema
 				{
 					produtos[coluna] = this.matriz[linhaDoElementoDaDiagonalPrincipal][coluna] * multiplicador; 	// Aqui ocorre a multiplicação entre os valores da linha do elemento da diagonal principal
 				}
-				somarResultadosAsmeMaisLinhas(produtos, linha);														// Chama-se o método para somar os valores encontrados através da multiplicação anterior
+				somarResultadosAsDemaisLinhas(produtos, linha);														// Chama-se o método para somar os valores encontrados através da multiplicação anterior
 			}
 		}
 	}

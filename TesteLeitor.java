@@ -10,7 +10,7 @@ public class TesteLeitor
 		try
 		{
 			//Teste da classe Leitor
-				Sistema sist = new Sistema("../Gauss-Project-master/gauss.txt");
+				Sistema sist = new Sistema("gauss.txt");
 				System.out.println(sist.toString());
 		}
 		catch(Exception err)

@@ -14,6 +14,7 @@ public class Programa
 			System.out.println("SOLUCIONADOR DE SISTEMAS LINEARES");
 			System.out.println("=================================");
 			System.out.print("Por favor, digite o nome do arquivo com o sistema: ");
+			//variável do stipo Sistema que armazenará o sistema lido
 			Sistema sistema = new Sistema(Teclado.getUmString());
 			System.out.println(sistema.resolver());
         }
